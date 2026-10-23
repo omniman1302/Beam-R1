@@ -25,14 +25,14 @@
 
   const COLUMNS = [
     { key: "rank", label: "Rank", type: "num", cls: "rank", width: "5.5%" },
-    { key: "score", label: "Score", type: "num", cls: "score", width: "4.5%" },
-    { key: "quota", label: "Quota", type: "text", tag: true, width: "11%" },
-    { key: "institute", label: "Allotted Institute", type: "text", cls: "inst", width: "29%" },
-    { key: "course", label: "Course", type: "text", cls: "course", width: "17.5%" },
-    { key: "allottedCategory", label: "Allotted Cat.", type: "text", width: "8.5%" },
-    { key: "candidateCategory", label: "Candidate Cat.", type: "text", width: "9.5%" },
+    { key: "score", label: "Score", type: "num", cls: "score", width: "5.5%" },
+    { key: "quota", label: "Quota", type: "text", tag: true, width: "10.5%" },
+    { key: "institute", label: "Allotted Institute", type: "text", cls: "inst", width: "27.5%" },
+    { key: "course", label: "Course", type: "text", cls: "course", width: "17%" },
+    { key: "allottedCategory", label: "Allotted Cat.", type: "text", width: "9%" },
+    { key: "candidateCategory", label: "Candidate Cat.", type: "text", width: "10%" },
     { key: "state", label: "State", type: "text", width: "7.5%" },
-    { key: "remarks", label: "Remarks", type: "text", cls: "cell-remark", width: "7%" },
+    { key: "remarks", label: "Remarks", type: "text", cls: "cell-remark", width: "7.5%" },
   ];
 
   const FILTER_FIELDS = [
@@ -590,7 +590,7 @@
             td.textContent = value || "";
           }
 
-          if ((col.key === "institute" || col.key === "course") && value) td.title = value;
+          if (value) td.title = String(value);
           tr.appendChild(td);
         }
         // rows are single-line; clicking one expands the full text

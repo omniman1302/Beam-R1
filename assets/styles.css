@@ -604,7 +604,7 @@ table {
   border-spacing: 0;
   table-layout: fixed;
   font-size: 12.5px;
-  min-width: 1180px;
+  min-width: 1240px;
 }
 
 thead th {
@@ -613,9 +613,9 @@ thead th {
   z-index: 5;
   background: var(--surface-3);
   color: var(--muted);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: left;
   padding: 8px 10px;
@@ -629,8 +629,8 @@ thead th {
 thead th:hover { color: var(--ink); }
 thead th .sort-arrow {
   display: inline-block;
-  margin-left: 5px;
-  font-size: 10px;
+  margin-left: 3px;
+  font-size: 9px;
   opacity: 0.45;
 }
 thead th.is-sorted { color: var(--brand); }
@@ -778,8 +778,10 @@ td.score { font-weight: 500; }
   .field-num { max-width: none; }
   /* page scrolls instead of a nested box; compact rows keep it short */
   .table-scroll { max-height: none; min-height: 0; }
-  table { min-width: 980px; font-size: 12.5px; }
+  table { min-width: 1040px; font-size: 12px; }
   tbody td { padding: 4px 8px; }
+  thead th { padding: 7px 8px; }
+  thead th .sort-arrow { display: none; }
 }
 
 @media (max-width: 640px) {
