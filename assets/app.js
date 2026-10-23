@@ -24,15 +24,15 @@
   ];
 
   const COLUMNS = [
-    { key: "rank", label: "Rank", type: "num", cls: "rank", stickyLeft: true },
-    { key: "score", label: "Score", type: "num", cls: "score" },
-    { key: "quota", label: "Quota", type: "text", tag: true },
-    { key: "institute", label: "Allotted Institute", type: "text", cls: "inst" },
-    { key: "course", label: "Course", type: "text", cls: "course" },
-    { key: "allottedCategory", label: "Allotted Category", type: "text" },
-    { key: "candidateCategory", label: "Candidate Category", type: "text" },
-    { key: "state", label: "State", type: "text" },
-    { key: "remarks", label: "Remarks", type: "text", cls: "cell-remark" },
+    { key: "rank", label: "Rank", type: "num", cls: "rank", width: "5.5%" },
+    { key: "score", label: "Score", type: "num", cls: "score", width: "4.5%" },
+    { key: "quota", label: "Quota", type: "text", tag: true, width: "11%" },
+    { key: "institute", label: "Allotted Institute", type: "text", cls: "inst", width: "29%" },
+    { key: "course", label: "Course", type: "text", cls: "course", width: "17.5%" },
+    { key: "allottedCategory", label: "Allotted Cat.", type: "text", width: "8.5%" },
+    { key: "candidateCategory", label: "Candidate Cat.", type: "text", width: "9.5%" },
+    { key: "state", label: "State", type: "text", width: "7.5%" },
+    { key: "remarks", label: "Remarks", type: "text", cls: "cell-remark", width: "7%" },
   ];
 
   const FILTER_FIELDS = [
@@ -457,6 +457,8 @@
       const th = document.createElement("th");
       th.dataset.key = col.key;
       th.scope = "col";
+      if (col.width) th.style.width = col.width;
+      th.title = col.label;
       th.innerHTML = `${esc(col.label)}<span class="sort-arrow" aria-hidden="true"></span>`;
       th.addEventListener("click", () => {
         if (state.sortKey === col.key) {
@@ -591,6 +593,9 @@
           if ((col.key === "institute" || col.key === "course") && value) td.title = value;
           tr.appendChild(td);
         }
+        // rows are single-line; clicking one expands the full text
+        tr.title = "Click to expand";
+        tr.addEventListener("click", () => tr.classList.toggle("is-open"));
         frag.appendChild(tr);
       }
       body.appendChild(frag);
